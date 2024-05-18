@@ -1,10 +1,10 @@
 from selenium.webdriver.common.by import By
-from action import Actions
-from base_po import BasePo
-from elementUtils import ElementUtils
-from enums import FormEnum
-from dataProviders import DataProvider
-from waiters import Waiters  # Ensure the Enum is adapted to Python
+from helpers.action import Actions
+from pageObjects.common.base_po import BasePo
+from helpers.elementUtils import ElementUtils
+from enums.enums import FormEnum
+from helpers.dataProviders import DataProvider
+from helpers.waiters import Waiters  # Ensure the Enum is adapted to Python
 
 class HomePage(BasePo):
     def __init__(self, driver):

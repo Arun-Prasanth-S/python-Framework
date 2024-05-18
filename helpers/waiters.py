@@ -3,7 +3,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from time import sleep
 
-from base_po import BasePo
+from pageObjects.common.base_po import BasePo
 
 
 class Waiters(BasePo):

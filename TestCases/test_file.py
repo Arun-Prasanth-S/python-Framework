@@ -1,7 +1,7 @@
 import pytest
-from base_po import BasePo
-from enums import ContactDetailsEnum, FormEnum, HeaderMenuItemsEnum, JobRoleEnum
-from homeSteps import HomeSteps
+from pageObjects.common.base_po import BasePo
+from enums.enums import ContactDetailsEnum, FormEnum, HeaderMenuItemsEnum, JobRoleEnum
+from stepFile.homeSteps import HomeSteps
 
 
 @pytest.fixture(scope="class")

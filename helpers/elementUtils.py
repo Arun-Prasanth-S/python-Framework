@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
-from base_po import BasePo
-from waiters import Waiters
+from pageObjects.common.base_po import BasePo
+from helpers.waiters import Waiters
 
 class ElementUtils(BasePo):
     max_retry_attempts = 3

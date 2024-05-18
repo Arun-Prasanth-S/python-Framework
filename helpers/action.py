@@ -4,9 +4,9 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import Select
 
-from base_po import BasePo
-from elementUtils import ElementUtils
-from waiters import Waiters
+from pageObjects.common.base_po import BasePo
+from helpers.elementUtils import ElementUtils
+from helpers.waiters import Waiters
  
 
 class Actions(BasePo):

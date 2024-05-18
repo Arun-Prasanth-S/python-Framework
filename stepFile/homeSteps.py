@@ -1,12 +1,12 @@
 
 from enum import Enum
-from assertions import Assertions
-from dataProviders import DataProvider
-from enums import HeaderMenuItemsEnum, ContactDetailsEnum, FormEnum, JobRoleEnum
+from helpers.assertions import Assertions
+from helpers.dataProviders import DataProvider
+from enums.enums import HeaderMenuItemsEnum, ContactDetailsEnum, FormEnum, JobRoleEnum
 
-from homePage import HomePage
-from stepUtils import StepUtils
-from stringUtils import StringUtils
+from pageObjects.homePage.homePage import HomePage
+from helpers.stepUtils import StepUtils
+from helpers.stringUtils import StringUtils
 
 class HomeSteps:
     def __init__(self, driver):
