@@ -1,13 +1,13 @@
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
-from basePackage import BasePo  # Assuming BasePo is converted to Python and saved as base_po.py
-from waiters import Waiters  # Ensure Waiters is adapted to Python and available
+from base_po import BasePo
+from waiters import Waiters
 
 class ElementUtils(BasePo):
     max_retry_attempts = 3
 
     @staticmethod
-    def get_element_by_locator(locator, index):
+    def get_element_by_locator(locator, index=0):
         last_exception = None
         for retry_count in range(ElementUtils.max_retry_attempts):
             try:
@@ -20,6 +20,9 @@ class ElementUtils(BasePo):
         raise Exception(f"Unable to get locator '{locator}' after {ElementUtils.max_retry_attempts} retries") from last_exception
 
     @staticmethod
-    def get_text_by_locator(locator, index):
+    def get_text_by_locator(locator, index=0):
         element = ElementUtils.get_element_by_locator(locator, index)
-        return element.text
+        if element is not None:
+            return element.text
+        else:
+            raise NoSuchElementException(f"No element found with locator '{locator}'")

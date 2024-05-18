@@ -1,21 +1,28 @@
-from basePackage import BasePo
-from enums import HeaderMenuItemsEnum, ContactDetailsEnum, FormEnum, JobRoleEnum
-from helpers import Assertions, DataProviders, StepUtils, StringUtils
-from pages.homePage import HomePage
 
-class HomeSteps(BasePo):
+from enum import Enum
+from assertions import Assertions
+from dataProviders import DataProvider
+from enums import HeaderMenuItemsEnum, ContactDetailsEnum, FormEnum, JobRoleEnum
+
+from homePage import HomePage
+from stepUtils import StepUtils
+from stringUtils import StringUtils
+
+class HomeSteps:
     def __init__(self, driver):
+        self.driver = driver
         self.homepage = HomePage(driver)
 
     def user_lands_on_home_page(self):
         self.homepage.open_landing_page()
 
     def click_on_menu_item(self, item):
-        self.homepage.click_on_header_menu_button(HeaderMenuItemsEnum[item].value)
+        # item_name = item.name if isinstance(item, Enum) else item
+        self.homepage.click_on_header_menu_button(item)
         StepUtils.add_log(f"The User clicks on the {item} button")
 
     def assert_menu_item(self, item):
-        base_url = DataProviders.get_url_test_data("tendableUrl")
+        base_url = DataProvider.get_url_test_data("tendableUrl")
         final_url = base_url + HeaderMenuItemsEnum[item].value
         expected_url = StringUtils.replace_all_string_for_value(
             StringUtils.get_string_to_lower_case(final_url), " ", "-"

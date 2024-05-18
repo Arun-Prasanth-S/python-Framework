@@ -3,9 +3,11 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import Select
-from basePackage import BasePo
-from helpers.elementUtils import ElementUtils
-from helpers.waiters import Waiters  
+
+from base_po import BasePo
+from elementUtils import ElementUtils
+from waiters import Waiters
+ 
 
 class Actions(BasePo):
     max_retry_attempts = 3
@@ -19,7 +21,7 @@ class Actions(BasePo):
         element.send_keys(text)
 
     @staticmethod
-    def click_by_locator(locator, index):
+    def click_by_locator(locator, index = 0):
         # Assuming implementation of ElementUtils.getElementByLocator
         page_element = ElementUtils.get_element_by_locator(locator, index)
         retry_count = 0

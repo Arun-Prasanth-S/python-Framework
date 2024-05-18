@@ -1,7 +1,7 @@
 import json
 
-class DataProviders:
-    URL = "testData/url"
+class DataProvider:
+    URL = "url"
 
     @staticmethod
     def provide_test_data(file_name, data_key):
@@ -16,4 +16,4 @@ class DataProviders:
 
     @staticmethod
     def get_url_test_data(url_name):
-        return DataProviders.provide_test_data(DataProviders.URL, url_name)
+        return DataProvider.provide_test_data(DataProvider.URL, url_name)
